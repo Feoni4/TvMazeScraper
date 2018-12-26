@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  tvmazescraper.integration:
+    image: ${DOCKER_REGISTRY-}tvmazescraperintegration
+    build:
+      context: .
+      dockerfile: TvMazeScraper.Integration/Dockerfile
+    depends_on:
+      ["redis"]
+    networks:
+      ["sdnet"]
+
+  tvmazescraper.presentation:
+    image: ${DOCKER_REGISTRY-}tvmazescraperpresentation
+    build:
+      context: .
+      dockerfile: TvMazeScraper.Presentation/Dockerfile
+    depends_on:
+      ["redis"]
+    networks:
+      ["sdnet"]
+
+  redis:
+    container_name: redis
+    image: redis:5.0.3-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../data/redis:/data
+    entrypoint: redis-server
+    restart: always
+    networks:
+      ["sdnet"]
+
+networks:
+  sdnet:
+    driver: "bridge"

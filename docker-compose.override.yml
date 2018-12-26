@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  tvmazescraper.integration:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  tvmazescraper.presentation:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

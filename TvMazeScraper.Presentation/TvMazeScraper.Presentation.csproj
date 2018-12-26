@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationInsightsResourceId>/subscriptions/c29a4573-50d4-4a42-aa28-da495ff8def1/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/TvMazeScraper.Presentation.ApplicationInsights</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/c29a4573-50d4-4a42-aa28-da495ff8def1/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/TvMazeScraper.Presentation.ApplicationInsights</ApplicationInsightsAnnotationResourceId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TvMazeScraper.Contracts\TvMazeScraper.Contracts.csproj" />
+    <ProjectReference Include="..\TvMazeScraper.DAL\TvMazeScraper.DAL.csproj" />
+    <ProjectReference Include="..\TvMazeScraper.Presentation.Domain\TvMazeScraper.Presentation.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+</Project>
